@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import './navbar.scss';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
@@ -10,7 +10,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import Modal from 'react-modal';
 import { IoClose } from 'react-icons/io5';
 import '../../pages/profile/modal.scss';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 function NavBar() {

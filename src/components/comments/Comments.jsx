@@ -1,6 +1,5 @@
 import React from 'react';
 import './comments.scss';
-import { Link } from 'react-router-dom';
 import { comments } from '../../dummyData';
 
 function Comments() {

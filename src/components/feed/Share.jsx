@@ -53,7 +53,7 @@ const Share = () => {
 
                     alt=""
                 />
-                <input className="shareInput" placeholder={"What is on your mind" + " " + user.firstname + "?"} ref={desc} />
+                <input className="shareInput" placeholder={"What is on your mind  "  + user.firstname + "?"} ref={desc} />
             </div>
 
             <hr className="shareHr" />

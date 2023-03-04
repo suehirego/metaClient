@@ -5,7 +5,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IoChatboxOutline } from 'react-icons/io5';
 import { IoIosShareAlt } from 'react-icons/io';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Comments from '../comments/Comments';
 import axios from 'axios';
 import {format} from "timeago.js";

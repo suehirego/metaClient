@@ -180,6 +180,7 @@ const handleSubmit = async (e) => {
                     </div>
 
                     <button type="submit" className="updateBtn">Update</button>
+                    {success && <span style={{color:'green'}}>Profile has been updated!</span>}
 
                 </div>
 

@@ -40,7 +40,7 @@ function Watch() {
                                         className='profileImg' alt=""
                                     />
 
-                                    <span>{"hi" + " " + user.firstname}</span>
+                                    <span>{"hi "  + user.firstname}</span>
                                 </div>
                             </Link>
 

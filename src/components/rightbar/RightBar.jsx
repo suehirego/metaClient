@@ -10,21 +10,17 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { BsPersonPlusFill, BsFillPersonDashFill } from 'react-icons/bs';
 import { FaBriefcase, FaHome, FaRegClock, FaUserFriends } from 'react-icons/fa';
 import EditProfile from '../../pages/profile/EditProfile';
-import { useNavigate } from 'react-router-dom';
 
 import Modal from 'react-modal';
 
 
 function RightFeed() {
 
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER
     // let { username } = useParams();
     const { username } = useParams();
     const [user, setUser] = useState({});
     const [friends, setFriends] = useState([]);
     const { user: currentUser, dispatch } = useContext(AuthContext);
-
-    const navigate = useNavigate();
 
 
     //GET CURRENT PROFILE HOLDER(user)
