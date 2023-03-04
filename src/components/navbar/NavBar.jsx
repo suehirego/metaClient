@@ -42,7 +42,7 @@ function NavBar() {
        useEffect(() => {
         const fetchUsers = async () => {
             const res = await axios.get("https://meta-inspo.herokuapp.com/api/users");
-            setUsers(res.data)
+            setUsers(res.data);
         };
         fetchUsers();
     }, []);
