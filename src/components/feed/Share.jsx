@@ -34,7 +34,7 @@ const Share = () => {
           image: imgUrl,
         };
         try {
-          await axios.post("/posts", newPost);
+          await axios.post("https://meta-inspo.herokuapp.com/api/posts", newPost);
           window.location.reload();
         } catch (err) {}
       };
