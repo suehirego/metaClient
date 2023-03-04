@@ -40,27 +40,27 @@ const EditProfile = () => {
             console.log(err);
         }
     };
-    
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    const imgUrl = await upload();
-    dispatch({ type: "UPDATE_START" });
-    const updatedUser = {
-          userId: user._id,
-          profilePic: imgUrl,
-         ...person,
-    };
-    try{
-          const res = await axios.put("/users/" + user._id, updatedUser);
-         setSuccess(true);
-         dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-         navigate("/");
-    } catch (err) {
-         dispatch({ type: "UPDATE_FAILURE" });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const imgUrl = await upload();
+        dispatch({ type: "UPDATE_START" });
+        const updatedUser = {
+            userId: user._id,
+            profilePic: imgUrl,
+            ...person,
+        };
+        try {
+            const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
+            setSuccess(true);
+            dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+            navigate("/");
+        } catch (err) {
+            dispatch({ type: "UPDATE_FAILURE" });
+        }
+
     }
-    
-}
 
 
     return (
@@ -88,7 +88,7 @@ const handleSubmit = async (e) => {
 
                     <img
                         src={file ? URL.createObjectURL(file) : "/assets/person/avatar1.png"}
-                        
+
                         alt=""
                         className="editProfileImg"
                     />
@@ -180,7 +180,7 @@ const handleSubmit = async (e) => {
                     </div>
 
                     <button type="submit" className="updateBtn">Update</button>
-                    {success && <span style={{color:'green'}}>Profile has been updated!</span>}
+                    {success && <span style={{ color: 'green' }}>Profile has been updated!</span>}
 
                 </div>
 

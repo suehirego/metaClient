@@ -35,7 +35,7 @@ const EditProfilePic = () => {
                 
             };
 
-            await axios.put("/users/" + user._id, updatedProfilePic);
+            await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedProfilePic);
         } catch (err) {
             console.log(err);
         }

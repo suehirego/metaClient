@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './navbar.scss';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
@@ -10,38 +10,13 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import Modal from 'react-modal';
 import { IoClose } from 'react-icons/io5';
 import '../../pages/profile/modal.scss';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 function NavBar() {
 
-    const users = [
-        {
-            firstname: 'Susan',
-            lastname: 'Hirego',
-            username: 'sue',
-        },
-        {
-            firstname: 'Nancy',
-            lastname: 'Drew',
-            username: 'nancy',
-        },
-        {
-            firstname: 'Payton',
-            lastname: 'Mckenzie',
-            username: 'payton',
-        },
-        {
-            firstname: 'John',
-            lastname: 'Doe',
-            username: 'john',
-        },
-        // more data here
-    ]
+    const { user: currentUser, dispatch } = useContext(AuthContext);
 
-    const { user, dispatch } = useContext(AuthContext);
-
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const [click, setClick] = useState(false);
 
     const handleClick = () => setClick(!click);
@@ -56,27 +31,21 @@ function NavBar() {
     }
 
     ///Search users
-    // const[users, setUsers] = useState("");
+    const[users, setUsers] = useState("");
     const [value, setValue] = useState('')
 
     const handleChange = (e) => {
         setValue(e.target.value)
     }
 
-    // const onSearch = (searchTerm) => {
-    //     setValue(searchTerm);
-    //     ///api to fetch data
-    //     console.log('search', searchTerm)
-    // }
-
     //GET ALL USERS
-    //    useEffect(() => {
-    //     const fetchUsers = async () => {
-    //         const res = await axios.get("https://shebossapi.herokuapp.com/api/users")
-    //         setUsers(res.data)
-    //     }
-    //     fetchUsers();
-    // }, []);
+       useEffect(() => {
+        const fetchUsers = async () => {
+            const res = await axios.get("https://meta-inspo.herokuapp.com/api/users")
+            setUsers(res.data)
+        };
+        fetchUsers();
+    }, []);
 
 
     const onSearch = (searchTerm) => {
@@ -98,12 +67,12 @@ function NavBar() {
 
     function afterOpenModal() {
         // references are now sync'd and can be accessed.
-        subtitle.style.color = 'red';
-        subtitle.style.marginTop = '20px';
-        subtitle.style.marginBottom = '20px';
-        subtitle.style.marginLeft = '40%';
-        subtitle.style.marginRight = '50%';
-        subtitle.style.width = '80px';
+        // subtitle.style.color = 'red';
+        // subtitle.style.marginTop = '20px';
+        // subtitle.style.marginBottom = '20px';
+        // subtitle.style.marginLeft = '40%';
+        // subtitle.style.marginRight = '50%';
+        // subtitle.style.width = '80px';
     }
 
     function closeModal() {
@@ -141,19 +110,20 @@ function NavBar() {
 
                         <li className="nav-item" onClick={scrollToTop}>
                             <NavLink
-                                to={`/profile/${user.username}`}
+                                to={`/profile/${currentUser.username}`}
                                 className={({ isActive }) => "nav-links" + (isActive ? " activated" : "")}
                                 onClick={closeMobileMenu}
 
                             >
                                 <img
-                                    //  className='responsiveProfileImg'
-                                    src={user.profilePic
-                                        ? PF + user.profilePic
-                                        : "/person/avatar1.png"}
-
-                                    alt="" />
-                                <span>{user.firstname + " " + user.lastname}</span>
+                                    src={
+                                        currentUser.profilePic
+                                            ? `https://meta-inspo.herokuapp.com/images/${currentUser.profilePic}`
+                                            : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
+                                    }
+                                    alt="" 
+                                />
+                                <span>{currentUser.firstname + " " + currentUser.lastname}</span>
                             </NavLink>
                         </li>
 
@@ -209,11 +179,13 @@ function NavBar() {
                         <div className='userWrapper'>
                             <li className="nav-item">
                                 <img
-                                    src={user.profilePic
-                                        ? PF + user.profilePic
-                                        : "/person/avatar1.png"}
-
-                                    alt="" />
+                                    src={
+                                        currentUser.profilePic
+                                            ? `https://meta-inspo.herokuapp.com/images/${currentUser.profilePic}`
+                                            : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
+                                    }
+                                    alt="" 
+                                    />
                             </li>
                         </div>
 

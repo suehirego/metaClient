@@ -24,7 +24,6 @@ function ProfilePage() {
 
     const [user, setUser] = useState({});
     const [friends, setFriends] = useState([]);
-    // let { username } = useParams();
     const { username } = useParams();
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
@@ -99,7 +98,7 @@ function ProfilePage() {
     const handleFollow = async (e) => {
 
         try {
-            await axios.put(`/users/${user._id}/follow`, {
+            await axios.put(`https://meta-inspo.herokuapp.com/api/users/${user._id}/follow`, {
                 userId: currentUser._id,
             });
             dispatch({ type: "FOLLOW", payload: user._id });
@@ -114,7 +113,7 @@ function ProfilePage() {
     const handleUnfollow = async (e) => {
 
         try {
-            await axios.put(`/users/${user._id}/unfollow`, {
+            await axios.put(`https://meta-inspo.herokuapp.com/api/users/${user._id}/unfollow`, {
                 userId: currentUser._id,
             });
             dispatch({ type: "UNFOLLOW", payload: user._id });
