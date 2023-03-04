@@ -1,0 +1,23 @@
+@import "../../global.scss";
+
+.home {
+      .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 35px;
+            background-color: #f0f2f5;
+
+            @include tablet {
+                  padding: 15px 55px;
+            }
+
+            @include mobile {
+                  padding: 10px 15px;
+            }
+            @include phone {
+                  padding: 10px 15px;
+            }
+
+      }
+}

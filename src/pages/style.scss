@@ -1,0 +1,766 @@
+@import "../global.scss";
+
+.pages {
+    height: 100vh;
+
+    .pageContainer {
+        display: flex;
+        gap: 20px;
+        background-color: #FFFFFF;
+
+        @include tablet {
+            // height: 200px;
+        }
+
+        .sideBar {
+            flex: 1.5;
+
+            @include tablet {
+                display: none;
+            }
+
+            .container {
+                padding: 20px;
+
+                .menu {
+                    display: flex;
+                    flex-direction: column;
+
+                    .mainItem {
+                        gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 15px;
+
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .item {
+                        gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 15px;
+
+                        .browseIcon {
+                            width: 20px;
+                            height: 20px;
+                            object-fit: cover;
+                            color: white;
+                            padding: 4px;
+                            border-radius: 50%;
+                            background-color: #1877f2;
+                        }
+
+                        .listIcon {
+                            width: 20px;
+                            height: 20px;
+                            object-fit: cover;
+                            color: black;
+                            padding: 4px;
+                            border-radius: 50%;
+                            background-color: lightgray;
+                        }
+                        .groupIcon {
+                            width: 55px;
+                            height: 55px;
+                            object-fit: cover;
+                            color: black;
+                            // padding: 4px;
+                            border-radius: 50%;
+                            border: 1px solid lightgray;
+                        }
+
+                        span {
+                            font-size: 13px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    button{
+                        gap: 12px;
+                        display: flex;
+                        border: none;
+                        padding: 10px;
+                        color: #FFFFFF;
+                        border-radius: 5px;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #1877f2;
+                    }
+
+                }
+
+                hr {
+                    margin: 15px 0px;
+                    border: none;
+                    height: 0.5px;
+                    background-color: lightgrey;
+                }
+
+            }
+        }
+
+        ///MARKETPLACE///
+        .marketFeed {
+            flex: 6;
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+            background-color: #f0f2f5;
+
+            @include large {
+                padding: 10px;
+            }
+            @include phone {
+                padding: 10px;
+            }
+
+            .feedTop {
+                display: flex;
+                padding: 0px 20px;
+                justify-content: space-between;
+
+                @include mobile {
+                    flex-direction: column;
+                    // margin-bottom: 50px;
+                }
+
+                .heading {
+                    gap: 5px;
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        font-size: 25px;
+                        color: #1877f2;
+
+                        @include mobile {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    p {
+                        color: red;
+                    }
+                }
+
+                .location {
+                    gap: 10px;
+                    display: flex;
+                    color: #1877f2;
+                    font-weight: 300;
+                    align-items: center;
+
+                    span {
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                }
+
+                .seller {
+                    display: flex;
+                    margin-top: 20px;
+                    flex-direction: column;
+
+
+                    h3 {
+                        font-size: 15px;
+                        font-weight: 300;
+                        margin-bottom: 5px;
+
+                        @include mobile {
+                            font-size: 14px;
+                        }
+                    }
+
+                    form {
+                        gap: 5px;
+                        display: flex;
+                        flex-direction: column;
+
+                        @include mobile {
+                            margin-bottom: 20px;
+                        }
+
+                        input {
+                            padding: 8px;
+                            border-radius: 3px;
+                            background-color: aliceblue;
+                            border: 0.4px solid lightgray;
+                        }
+
+                        button {
+                            padding: 8px;
+                            cursor: pointer;
+                            border-radius: 3px;
+                            background-color: aliceblue;
+                            border: 0.4px solid lightgray;
+                        }
+                    }
+
+                }
+            }
+
+            .feedDetails {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                padding: 40px 0px;
+                flex-direction: column;
+
+                .wrapper {
+                    margin: 0 20px;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-gap: 10px;
+                    @include large {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-gap: 10px;
+                        margin-top: 40px;
+                    }
+
+                    @include tablet {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-gap: 10px;
+                        margin-top: 40px;
+                    }
+
+                    @include mobile {
+                        display: grid;
+                        grid-template-columns: repeat(1, 1fr);
+                        grid-gap: 10px;
+                        margin-top: 20px;
+                        margin: 0 10px;
+                    }
+
+                    .wrapperItem {
+                        height: 320px;
+                        display: flex;
+                        font-weight: 300;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        border: 0.4px solid lightgray;
+
+                        @include large {
+                            height: 280px;
+                            margin-bottom: 60px;
+                        }
+
+                        @include tablet {
+                            height: 380px;
+                            margin-bottom: 50px;
+                        }
+
+                        @include mobile {
+                            height: 410px;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                        p {
+                            margin-top: 10px;
+                            font-size: 14px;
+
+                            @include large {
+                                font-size: 12px;
+                            }
+                        }
+
+                        span {
+                            margin-top: 10px;
+                            font-size: 14px;
+                            margin-bottom: 10px;
+
+                            @include large {
+                                font-size: 12px;
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+
+        //WATCH //
+        .watchFeed {
+            flex: 4;
+            display: flex;
+            padding: 20px 150px;
+            flex-direction: column;
+            background-color: #f0f2f5;
+
+            @include large {
+                padding: 20px 40px;
+            }
+
+            @include tablet {
+                padding: 20px 50px;
+            }
+
+            @include mobile {
+                padding: 20px 30px;
+            }
+
+            @include phone {
+                padding: 20px 10px;
+            }
+
+            .feedTop {
+                display: flex;
+                padding: 10px 0px 20px 0px;
+                justify-content: space-between;
+
+                @include mobile {
+                    flex-direction: column;
+                    // margin-bottom: 50px;
+                }
+
+                .heading {
+                    gap: 5px;
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        font-size: 25px;
+                        color: #1877f2;
+
+                        @include mobile {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    p {
+                        color: red;
+                    }
+                }
+
+            }
+
+            .video {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 13px;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+                .videoTop {
+                    gap: 15px;
+                    display: flex;
+                    padding: 15px 25px;
+                    margin-bottom: 5px;
+                    flex-direction: column;
+
+
+                    .topProfile {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        img {
+                            width: 55px;
+                            height: 55px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+
+                        .item {
+                            gap: 3px;
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                font-weight: 500;
+                                font-size: 16px;
+                            }
+
+                            p {
+                                color: gray;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                    .topDesc {
+                        color: #282828;
+                        font-size: 15px;
+                        font-weight: 300;
+                        // padding-right: 100px;
+                    }
+                }
+
+                .videoCenter {
+                    gap: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0px 15px;
+                    margin-bottom: 10px;
+
+                    .videoTag {
+                        width: 100%;
+                        height: 350px;
+                        object-fit: cover;
+                        border-radius: 2px;
+                    }
+
+                }
+
+
+                .videoBottom {
+                    padding: 0px 15px;
+
+                    .bottomItem {
+                        display: flex;
+                        color: #282828;
+                        font-size: 14.5px;
+                        justify-content: space-between;
+
+                        .left {
+                            gap: 5px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .right {
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    hr {
+                        margin: 15px 0px;
+                        border: none;
+                        height: 1px;
+                        background-color: lightgray;
+                    }
+
+                    .videoComments {
+                        display: flex;
+                        margin-bottom: 15px;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        .item {
+                            display: flex;
+                            gap: 5px;
+                            color: #282828;
+                            font-size: 14px;
+                            align-items: center;
+
+                            .icon {
+                                font-size: 18px;
+                            }
+
+                            @include phone {
+                                gap: 0px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        /////GROUPS////
+        .groupFeed {
+            flex: 4;
+            display: flex;
+            padding: 20px 60px;
+            flex-direction: column;
+            background-color: #f0f2f5;
+
+            @include large {
+                padding: 20px 20px;
+            }
+
+            @include phone {
+                padding: 20px 10px;
+            }
+
+            .feedTop {
+                display: flex;
+                padding: 10px 0px 20px 0px;
+                justify-content: space-between;
+
+                @include mobile {
+                    flex-direction: column;
+                    // margin-bottom: 50px;
+                }
+
+                .heading {
+                    gap: 5px;
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        font-size: 25px;
+                        color: #1877f2;
+
+                        @include mobile {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    p {
+                        color: grey;
+                    }
+                }
+
+            }
+
+            .group {
+                gap: 18px;
+                display: flex;
+                margin-bottom: 13px;
+
+                .groupLeft {
+                    flex: 2;
+                    border-radius: 10px;
+                    background-color: #FFFFFF;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+                    .groupTop {
+                        gap: 15px;
+                        display: flex;
+                        padding: 15px 25px;
+                        margin-bottom: 5px;
+                        flex-direction: column;
+
+                        .topProfile {
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+
+                            img {
+                                width: 55px;
+                                height: 55px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+
+                            .item {
+                                gap: 3px;
+                                display: flex;
+                                flex-direction: column;
+
+                                span {
+                                    font-weight: 500;
+                                    font-size: 16px;
+                                }
+
+                                p {
+                                    color: gray;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        .topDesc {
+                            color: #282828;
+                            font-size: 14px;
+                            font-weight: 300;
+                        }
+                    }
+
+                    .groupCenter {
+                        gap: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0px 15px;
+                        margin-bottom: 10px;
+
+                        img {
+                            width: 100%;
+                            height: 350px;
+                            object-fit: cover;
+                            border-radius: 2px;
+                        }
+
+                    }
+
+                    .groupBottom {
+                        padding: 0px 15px;
+
+                        .bottomItem {
+                            display: flex;
+                            color: #282828;
+                            font-size: 14.5px;
+                            justify-content: space-between;
+
+                            .left {
+                                gap: 5px;
+                                display: flex;
+                                align-items: center;
+                            }
+
+                            .right {
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+
+                        hr {
+                            margin: 15px 0px;
+                            border: none;
+                            height: 1px;
+                            background-color: lightgray;
+                        }
+
+                        .groupComments {
+                            display: flex;
+                            margin-bottom: 15px;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .item {
+                                display: flex;
+                                gap: 5px;
+                                color: #282828;
+                                font-size: 14px;
+                                align-items: center;
+
+                                .icon {
+                                    font-size: 18px;
+                                }
+
+                                @include phone {
+                                    gap: 0px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+                .groupRight {
+                    flex: 1;
+                    gap: 8px;
+                    display: flex;
+                    padding: 15px 25px 0px 25px;
+                    border-radius: 10px;
+                    flex-direction: column;
+                    background-color: #FFFFFF;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    @include large {
+                        padding: 15px 10px 0px 10px;
+                    }
+                    @include mobile {
+                        display: none;
+                    }
+
+                    span {
+                        color: #282828;
+                        font-size: 16px;
+                    }
+
+                    p {
+                        color: gray;
+                        font-size: 14px;
+                        margin-bottom: 10px;
+                        @include large {
+                            font-size: 12px;
+                        }
+                    }
+
+                    .wrapper {
+                        margin-bottom: 10px;
+                        border-radius: 10px;
+                        background-color: #FFFFFF;
+                        box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
+
+                        img {
+                            width: 100%;
+                            height: 160px;
+                            object-fit: cover;
+                            border-top-right-radius: 10px;
+                            border-top-left-radius: 10px;
+                            @include large {
+                                height: 140px;
+                            }
+                        }
+
+                        .imgItem {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: column;
+
+                            .groupName {
+                                color: #282828;
+                                font-size: 15px;
+                                @include large {
+                                    font-size: 13px;
+                                }
+                                @include tablet {
+                                    font-size: 15px;
+                                }
+                            }
+
+                            .text {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                p {
+                                    font-size: 12px;
+                                    @include large {
+                                        font-size: 10px;
+                                    }
+                                }
+                            }
+
+                            button {
+                                border: none;
+                                color: #FFFFFF;
+                                border-radius: 5px;
+                                padding: 5px 50px;
+                                margin-bottom: 15px;
+                                background-color: #1877f2;
+                                @include large {
+                                    padding: 5px 20px;
+                                    font-size: 12px;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,133 @@
+@import '../../global.scss';
+
+.posts {
+    // padding: 20px;
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 13px;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+        .postTop {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            justify-content: space-between;
+
+            .postTopLeft {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+
+                img {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                .item {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        font-weight: 500;
+                        font-size: 15px;
+                    }
+
+                    p {
+                        color: gray;
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .topIcon {
+                color: #282828;
+                font-size: 28px;
+                cursor: pointer;
+            }
+        }
+
+        .postCenter {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            padding: 0px 15px;
+            margin-bottom: 10px;
+
+            span {
+                color: #282828;
+                font-size: 14.5px;
+            }
+        }
+
+        img {
+            width: 100%;
+            max-height: 550px;
+            object-fit: cover;
+            // @include mobile {
+            //      width: 150px;
+            // }
+        }
+
+
+        .postBottom {
+            padding: 0px 15px;
+
+            .bottomItem {
+                display: flex;
+                color: #282828;
+                font-size: 14.5px;
+                justify-content: space-between;
+
+                .left {
+                    gap: 5px;
+                    display: flex;
+                    align-items: center;
+                }
+                .right{
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            hr {
+                margin: 15px 0px;
+                border: none;
+                height: 1px;
+                background-color: lightgray;
+            }
+            .postComments{
+                display: flex;
+                margin-bottom: 15px;
+                align-items: center;
+                justify-content: space-between;
+
+                .item{
+                    display: flex;
+                    gap: 5px;
+                    color: #282828;
+                    font-size: 14px;
+                    align-items: center;
+                    .icon{
+                        font-size: 18px;
+                    }
+                    @include phone{
+                        gap: 0px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}

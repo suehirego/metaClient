@@ -1,0 +1,100 @@
+// @import '../../global.scss';
+@import '../../global.scss';
+
+.comments{
+      display: flex;
+      flex-direction: column;
+      hr {
+            margin: 5px 0px;
+            border: none;
+            height: 1px;
+            background-color: lightgrey;
+      }
+      .write{
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 15px 20px 0px;
+            @include phone {
+                  gap: 5px;
+                  margin: 15px 5px 20px 0px;
+            }
+            img{
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+            }
+            input{
+                  flex: 5;
+                  width: 100%;
+                  padding: 12px;
+                  border-radius: 3px;
+                  border: 0.6px solid gray;
+                  @include phone {
+                        width: 40%;
+                  }
+            }
+            input:focus {
+                  outline: none;
+            }
+            button{
+                  flex: 0.5;
+                  align-self: center;
+                  color: white;
+                  font-size: 13px;
+                  font-weight: 400;
+                  border: none;
+                  padding: 6px;
+                  border-radius: 3px;
+                  background-color: #1877f2;
+            }
+      }
+      .comment{
+            gap: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 13px;
+            img{
+                  width: 30px;
+                  height: 30px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  align-self: center;
+            }
+            .info{
+                  flex: 5;
+                  gap: 3px;
+                  display: flex;
+                  flex-direction: column;
+                  text-align: justify;
+                  font-size: 14px;
+                  background-color: #f0f2f5;
+                  padding: 10px 10px;
+                  border: none;
+                  border-radius: 8px;
+                  span{
+                        font-weight: 500;
+                  }
+                  p{
+                        color:#353935;
+                        font-weight: 400;
+                        @include mobile {
+                              text-align: left;
+                        }
+                  }
+            }
+            .date{
+                  flex: 1;
+                  align-self: center;
+                  color: gray;
+                  font-size: 13px;
+                  font-weight: 400;
+                  @include mobile {
+                        font-size: 10px;
+                  }
+            }
+      }
+      
+}

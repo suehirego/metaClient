@@ -1,0 +1,333 @@
+@import "../../global.scss";
+
+.rightbar {
+    flex: 3;
+    top: 60px;
+    position: sticky;
+    overflow: scroll;
+    height: calc(100vh - 60px);
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include mobile {
+        display: none;
+    }
+    @include tablet {
+        display: none;
+    }
+
+    .container {
+        padding: 20px;
+
+        h4 {
+            font-size: 17px;
+            color: #282828;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .sponsorItem {
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+            img {
+                height: 120px;
+                width: 90px;
+                border-radius: 10px;
+            }
+
+            .sponsorDetails {
+                p {
+                    color: #282828;
+                    font-size: 14px;
+                }
+
+                span {
+                    color: gray;
+                    font-size: 12px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        hr {
+            margin: 15px 0px;
+            border: none;
+            height: 0.5px;
+            background-color: lightgrey;
+        }
+
+        .birthdayItem {
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+            img {
+                height: 40px;
+                width: 40px;
+                border-radius: 10px;
+            }
+
+            .birthdayDetails {
+                p {
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+
+                span {
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+
+        }
+
+        .onlineItem {
+            gap: 20px;
+            display: flex;
+            position: relative;
+            align-items: center;
+            margin-bottom: 15px;
+
+            img {
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 400;
+            }
+
+            .online {
+                top: 0;
+                left: 28px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                position: absolute;
+                background-color: limegreen;
+            }
+        }
+    }
+
+    .profileBottom {
+        padding: 20px;
+
+        .rightbarContainer {
+            gap: 15px;
+            display: flex;
+            flex-direction: column;
+
+            h4 {
+                font-size: 19px;
+                color: #282828;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            hr {
+                margin: 15px 0px;
+                border: none;
+                height: 0.5px;
+                background-color: lightgrey;
+            }
+        
+            
+            .rightbarCard {
+                gap: 15px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                background-color: #FFFFFF;
+
+                .heading {
+                    gap: 15px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-top: 10px;
+                    margin-bottom: 15px;
+
+                    span {
+                        font-size: 13px;
+                        font-weight: 300;
+                        text-align: center;
+                        margin-top: -10px;
+                    }
+
+                    .friendsBtn {
+                        border: none;
+                        color: white;
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: rgba(24,119,242);
+                        &:focus{
+                            outline: none;
+                        }
+    
+                        .friendIcon{
+                            font-size: 20px;
+                        }
+    
+                    }
+    
+                    .editBtn {
+                        border: none;
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        gap: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 0.4px solid lightgray;
+                        background-color: #ebecf0;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+
+                .items {
+                    gap: 20px;
+                    display: flex;
+                    flex-direction: column;
+            
+                    .sidebarItem {
+                        gap: 10px;
+                        display: flex;
+                        color: #282828;
+
+                        span {
+                            font-size: 14px;
+                            font-weight: 300;
+                        }
+
+                        .details {
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                    }
+
+                    .sidebarIcon {
+                        font-size: 22px;
+                        color: gray;
+                    }
+                }
+
+            }
+
+            .sidebarFriends{
+                gap: 15px;
+
+                .profileFriends {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 10px;
+                    align-items: center;
+                        justify-content: center;
+                    justify-content: space-between;
+                    
+
+                    .friendItem {
+                        flex: 0 0 30%;
+                        margin: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        @include large {
+                            flex: 0 0 27%;
+                            margin: 5px;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 5px;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            font-weight: 300;
+                            color: #282828;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include large {
+                                font-size: 9px;
+                            }
+                        }
+                    }
+                }
+
+               
+            }
+
+            .bottom {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                gap: 2px;
+                color: gray;
+                font-size: 10px;
+                margin-bottom: 10px;
+
+                // position: fixed;
+                // bottom: 0;
+             
+
+                @include tablet {
+                    display: none;
+                }
+            }
+
+           
+        }
+
+    }
+
+    .deleteItem {
+        gap: 10px;
+        display: flex;
+        color: #282828;
+
+        .deleteBtn{
+            gap: 10px;
+            display: flex;
+            border: none;
+            width: 100%;
+            padding: 8px;
+            color: red;
+            border-radius: 3px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            border: 0.4px solid red;
+            background-color: #ebecf0;
+            &:focus{
+                outline: none;
+            }
+
+            .deleteIcon{
+                font-size: 22px;
+                color: red;
+            }
+        }
+    }
+    
+}

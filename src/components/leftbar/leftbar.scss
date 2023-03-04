@@ -1,0 +1,126 @@
+@import "../../global.scss";
+
+.leftbar {
+    flex: 2.6;
+    top: 60px;
+    position: sticky;
+    overflow: scroll;
+    height: calc(100vh - 60px);
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    @include large {
+        display: none;
+    }
+    @include mobile {
+        display: none;
+    }
+
+    .container {
+        padding: 20px;
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+
+            .mainItem {
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+            }
+
+            .item {
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+
+                img {
+                    width: 26px;
+                    height: 26px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+            }
+
+            .groupItem {
+                gap: 10px;
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                .groupIcon {
+                    width: 20px;
+                    height: 20px;
+                    object-fit: cover;
+                    color: white;
+                    padding:3px;
+                    border-radius: 50%;
+                    background-color: #1877f2;
+                }
+                .groupWorkIcon {
+                    width: 18px;
+                    height: 18px;
+                    object-fit: cover;
+                    color: #4654e2;
+                    padding:3px;
+                    border-radius: 50%;
+                    border: 2px solid #4654e2;
+                }
+                .groupFriendsIcon {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: cover;
+                    color: #4654e2;
+                    border: 1px solid white;
+                }
+                span {
+                    font-size: 13px;
+                    font-weight: 400;
+                }
+            }
+
+        }
+
+        hr {
+            margin: 15px 0px;
+            border: none;
+            height: 0.5px;
+            background-color: lightgrey;
+        }
+
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            gap: 2px;
+            color: gray;
+            font-size: 10px;
+            margin-bottom: 10px;
+            position: fixed; bottom: 0;
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+
+}
