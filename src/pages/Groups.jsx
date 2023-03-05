@@ -67,7 +67,7 @@ function Groups() {
                                 <span>Rego Foundation</span>
                             </div>
                             <div className='item'>
-                            <img className='groupIcon' src={"https://meta-inspo.herokuapp.com/images/pagepics/data.jpg"} alt="" />
+                            <img className='groupIcon' src={"https://meta-inspo.herokuapp.com/images/pagepics/data.JPG"} alt="" />
                                 <span>Data Structures</span>
                             </div>
                             <div className='item'>
@@ -157,7 +157,7 @@ function Groups() {
                             <span>Popular near you</span>
                             <p>Groups people in your area are in</p>
                             <div className="wrapper">
-                                <img src={"https://meta-inspo.herokuapp.com/images/pagepics/data.jpg"} alt="" />
+                                <img src={"https://meta-inspo.herokuapp.com/images/pagepics/data.JPG"} alt="" />
                                 <div className="imgItem">
                                     <span className='groupName'>Data Structures</span>
                                     <div className="text">

@@ -9,6 +9,7 @@ import { AuthContext } from '../../context/AuthContext';
 function LeftBar() {
 
     const {user } = useContext(AuthContext);
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
     return (
         <div className='leftbar'>
@@ -19,8 +20,8 @@ function LeftBar() {
                     <Link to={`profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='mainItem'>
                         <img
-                            src={
-                                user.profilePic
+                             src={
+                                user?.profilePic
                                     ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
                                     : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
                             }
