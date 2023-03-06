@@ -55,7 +55,7 @@ const EditProfile = () => {
             const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
             setSuccess(true);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-            navigate("/");
+            navigate(`/profile/${user.username}`);
         } catch (err) {
             dispatch({ type: "UPDATE_FAILURE" });
         }

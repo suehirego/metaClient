@@ -44,6 +44,8 @@ function App() {
         )
     };
 
+   
+
     //Allow only logged in user to view homepage
     const ProtectedRoute = ({ children}) => {
         const { user } = useContext(AuthContext);
@@ -71,7 +73,7 @@ function App() {
                 },
                 {
                     path:"profile/:username",
-                    element: <ProfilePage/>,
+                    element: <ProfilePage user/>,
                 },
             ]
         },

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './posts.scss';
 import { IoClose } from 'react-icons/io5';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -8,10 +8,10 @@ import { IoIosShareAlt } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/Comments';
 import axios from 'axios';
-import {format} from "timeago.js";
+import { format } from "timeago.js";
 import { AuthContext } from '../../context/AuthContext';
 
-  
+
 
 function Posts({ post }) {
 
@@ -21,15 +21,13 @@ function Posts({ post }) {
     const [user, setUser] = useState({});
 
     const [posts, setPosts] = useState([]);
-    
-    // const PF =  process.env.REACT_APP_PUBLIC_FOLDER
 
     const { user: currentUser } = useContext(AuthContext);
 
     useEffect(() => {
         setIsLiked(post.likes.includes(currentUser._id));
     }, [currentUser._id, post.likes]);
-    
+
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -37,114 +35,113 @@ function Posts({ post }) {
             setUser(res.data);
         }
         fetchUser();
-    },[post.userId]);
+    }, [post.userId]);
 
 
-    
 
-      const handleDelete = async (id) => {
+
+    const handleDelete = async (id) => {
         try {
             await axios.delete(`posts/${id}`, { data: { userId: user._id }, });
-          setPosts(posts.filter((post) => post._id !== id));
-          window.location.reload();
-          
+            setPosts(posts.filter((post) => post._id !== id));
+            window.location.reload();
+
         } catch (err) {
             console.log(err.message);
         }
-      };
+    };
 
-    
+
 
     // lIKE HANDER
     const likeHandler = () => {
         try {
-          axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
-        } catch (err) {}
+            axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+        } catch (err) { }
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
-      };
-   
+    };
+
 
 
 
     return (
         <div className='posts'>
-           
-            {/* {posts.map((post) => ( */}
-                <div className='post'>
 
-                    <div className='postTop'>
-                        <div className='postTopLeft'>
+            <div className='post'>
+
+                <div className='postTop'>
+                    <div className='postTopLeft'>
                         <img
                             src={
                                 user.profilePic
                                     ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
                                     : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
                             }
-                            
+
                             alt=""
                         />
-                            
-                            <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
 
-                                <div className="item">
-                                    <span>{user.firstname + " " + user.lastname}</span>
-                                    <p>{format(post.createdAt)}</p>
-                                </div>
-                            </Link>
-                        </div>
+                        <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
 
-
-                        {post.userId === currentUser._id &&
-                            <IoClose className='topIcon' style={{cursor:'pointer'}} onClick={() => handleDelete(post._id)}/>
-                       } 
-
-
+                            <div className="item">
+                                <span>{user.firstname + " " + user.lastname}</span>
+                                <p>{format(post.createdAt)}</p>
+                            </div>
+                        </Link>
                     </div>
 
-                    <div className='postCenter'>
-                        <span>{post.desc }</span>
-                        {/* <img src={PF + post.image} alt="" /> */}
-                        <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" />
-                    </div>
 
-                    <div className='postBottom'>
-                        <div className='bottomItem'>
-                            <div className='left'>
-                                <ThumbUpIcon style={{ color: '#1877f2', cursor:'pointer' }} onClick={likeHandler}/>
-                                <FavoriteIcon style={{ color: 'red',cursor:'pointer' }} onClick={likeHandler}/>
-                                <p>{like} people like this</p>
-                            </div>
-                            <div className='right' onClick={() => setCommentOpen(!commentOpen)}>
-                                <p>Comments</p>
-                            </div>
-                        </div>
+                    {post.userId === currentUser._id &&
+                        <IoClose className='topIcon' style={{ cursor: 'pointer' }} onClick={() => handleDelete(post._id)} />
+                    }
 
-                        <hr />
-
-                        <div className='postComments'>
-                            <div className='item'>
-                                <ThumbUpIcon className='icon'/>
-                                <p>Like</p>
-                            </div>
-                            <div className='item'>
-                                <IoChatboxOutline className='icon'/>
-                                <p>Comment</p>
-                            </div>
-                            <div className='item'>
-                                <IoIosShareAlt className='icon'/>
-                                <p>Share</p>
-                            </div>
-                        </div>
-
-                        { commentOpen && <Comments/>}
-                        
-                    </div>
 
                 </div>
-            {/* ))} */}
 
-            
+                <div className='postCenter'>
+                    <span>{post.desc}</span>
+                    {/* <img src={PF + post.image} alt="" /> */}
+                    <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" />
+                </div>
+
+                <div className='postBottom'>
+                    <div className='bottomItem'>
+                        <div className='left'>
+                            <ThumbUpIcon style={{ color: '#1877f2', cursor: 'pointer' }} onClick={likeHandler} />
+                            <FavoriteIcon style={{ color: 'red', cursor: 'pointer' }} onClick={likeHandler} />
+                            <p>{like} people like this</p>
+                        </div>
+                        <div className='right' onClick={() => setCommentOpen(!commentOpen)}>
+                            <p>Comments</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div className='postComments'>
+                        <div className='item'>
+                            <ThumbUpIcon className='icon' />
+                            <p>Like</p>
+                        </div>
+                        <div className='item'>
+                            <IoChatboxOutline className='icon' />
+                            <p>Comment</p>
+                        </div>
+                        <div className='item'>
+                            <IoIosShareAlt className='icon' />
+                            <p>Share</p>
+                        </div>
+                    </div>
+
+                    {commentOpen && <Comments />}
+
+                </div>
+
+            </div>
+
+
+
         </div>
     );
 }

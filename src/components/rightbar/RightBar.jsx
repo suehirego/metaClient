@@ -1,3 +1,4 @@
+/* eslint-disable no-global-assign */
 import React, { useContext, useState, useEffect } from 'react';
 import './rightbar.scss';
 import '../../pages/profile/modal.scss';
@@ -11,8 +12,6 @@ import { BsPersonPlusFill, BsFillPersonDashFill } from 'react-icons/bs';
 import { FaBriefcase, FaHome, FaRegClock, FaUserFriends } from 'react-icons/fa';
 import EditProfile from '../../pages/profile/EditProfile';
 
-import Modal from 'react-modal';
-
 
 function RightFeed() {
 
@@ -21,6 +20,7 @@ function RightFeed() {
     const [friends, setFriends] = useState([]);
     const { user: currentUser, dispatch } = useContext(AuthContext);
 
+    const [openModal, setOpenModal] = useState(false);
 
     //GET CURRENT PROFILE HOLDER(user)
     useEffect(() => {
@@ -32,12 +32,24 @@ function RightFeed() {
     }, [username]);
 
 
+    // //GET FRIENDLIST
+    useEffect(() => {
+        const getFriends = async () => {
+            try {
+                const friendList = await axios.get("https://meta-inspo.herokuapp.com/api/users/friends/" + user?._id);
+                setFriends(friendList.data);
+            } catch (err) {
+                // console.log(err);
+            }
+        };
+        getFriends();
+    }, [user]);
 
     // //GET FRIENDLIST
     useEffect(() => {
         const getFriends = async () => {
             try {
-             const friendList = await axios.get("https://meta-inspo.herokuapp.com/api/users/friends/" + user._id);
+                const friendList = await axios.get("https://meta-inspo.herokuapp.com/api/users/friends/" + user._id);
                 setFriends(friendList.data);
             } catch (err) {
                 // console.log(err);
@@ -77,25 +89,24 @@ function RightFeed() {
     }
 
     ///modal
-    let subtitle;
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = 'red';
-        subtitle.style.marginTop = '20px';
-        subtitle.style.marginBottom = '20px';
-        subtitle.style.marginLeft = '58px';
-        subtitle.style.width = '80px';
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
+    const Modal = ({ open, closeModal }) => {
+        if (!open) return null;
+        return (
+            <div onClick={closeModal} className='Overlay'>
+                <div
+                    onClick={(e) => {
+                        e.stopPropagation();
+                    }}
+                    className="Modal"
+                >
+                    <EditProfile />
+                    <button className='closeBtn' onClick={closeModal}>
+                        close
+                    </button>
+                </div>
+            </div>
+        );
+    };
 
 
 
@@ -156,7 +167,6 @@ function RightFeed() {
                         </div>
 
                     ))}
-
                 </div>
             </>
         )
@@ -166,7 +176,6 @@ function RightFeed() {
     const ProfileRightBar = () => {
         return (
             <>
-
                 <div className="profileBottom">
 
                     {/* <div className='profileDetails'> */}
@@ -185,7 +194,7 @@ function RightFeed() {
 
                                 {user.username === currentUser.username ?
 
-                                    <button className='editBtn' onClick={openModal}>
+                                    <button className='editBtn' onClick={() => setOpenModal(true)} >
                                         <ModeEditIcon className='icon' />
                                         Edit Profile
                                     </button>
@@ -273,7 +282,7 @@ function RightFeed() {
                                 {friends.map((friend) => (
                                     <div className="friendItem" key={friend._id}>
 
-                                        <Link to={"/profile/" + friend.username} style={{ textDecoration: "none" }}>
+                                        <Link to={`/profile/${friend.username}`} style={{ textDecoration: "none" }}>
 
                                             <img
                                                 src={
@@ -289,7 +298,6 @@ function RightFeed() {
 
                                 ))}
 
-
                             </div>
 
                         </div>
@@ -297,7 +305,7 @@ function RightFeed() {
                         <hr />
 
                     </div>
-                    
+
                 </div>
 
             </>
@@ -311,18 +319,9 @@ function RightFeed() {
             {username ? <ProfileRightBar /> : <HomeRightBar />}
 
             <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                contentLabel="Example Modal"
-                className="Modal"
-                overlayClassName="Overlay"
-            >
-                <EditProfile />
-                <button onClick={closeModal} ref={(_subtitle) => (subtitle = _subtitle)}>
-                    close
-                </button>
-            </Modal>
+                open={openModal}
+                closeModal={() => setOpenModal(false)}
+            />
 
         </div>
     )

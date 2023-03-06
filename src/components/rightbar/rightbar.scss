@@ -155,9 +155,11 @@
 
                     span {
                         font-size: 13px;
-                        font-weight: 300;
+                        font-weight: 400;
                         text-align: center;
                         margin-top: -10px;
+                        color: #282828;
+                        color: #1877f2;
                     }
 
                     .friendsBtn {
@@ -286,10 +288,6 @@
                 color: gray;
                 font-size: 10px;
                 margin-bottom: 10px;
-
-                // position: fixed;
-                // bottom: 0;
-             
 
                 @include tablet {
                     display: none;

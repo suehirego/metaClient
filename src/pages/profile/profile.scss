@@ -1,15 +1,18 @@
 @import "../../global.scss";
 
-.profileWrapper{
+.profileWrapper {
+    display: flex;
     margin-bottom: 20px;
 
     .profile {
         // padding: 0px 35px;
         padding: 0px 35px 20px 35px;
         background-color: #f0f2f5;
+
         @include mobile {
             padding: 0px 10px;
         }
+
         @include phone {
             padding: 0px 10px;
         }
@@ -17,7 +20,7 @@
         .profileTop {
             width: 100%;
             position: relative;
-    
+
             .coverImg {
                 width: 100%;
                 height: 300px;
@@ -29,14 +32,16 @@
                 @include tablet {
                     height: 250px;
                 }
+
                 @include phone {
                     height: 200px;
                 }
 
             }
+
             .coverBtn {
                 top: 250px;
-                right:15px;
+                right: 15px;
                 border: none;
                 padding: 8px 18px;
                 border-radius: 3px;
@@ -48,29 +53,35 @@
                 justify-content: center;
                 border: 0.5px solid #363636;
                 background-color: #FBFDFC;
+
                 @include large {
                     top: 230px;
                 }
+
                 @include tablet {
                     top: 190px;
                 }
+
                 @include mobile {
                     top: 50px;
                     right: 20px;
                     padding: 8px 10px;
                 }
+
                 @include phone {
                     display: none;
                 }
-                
+
             }
 
             .mobileCoverBtn {
                 display: none;
-                .cameraIcon{
+
+                .cameraIcon {
                     width: 25px;
                     height: 30px;
                 }
+
                 @include phone {
                     display: flex;
                     top: 150px;
@@ -82,10 +93,10 @@
                     justify-content: center;
                     border: 0.5px solid #FFFFFF;
                 }
-                
-                
+
+
             }
-    
+
             .profileWrapper {
                 padding: 50px 65px;
                 display: flex;
@@ -98,22 +109,25 @@
                     margin-bottom: 15px;
                     padding: 40px 65px;
                 }
-                @include tablet{
+
+                @include tablet {
                     padding: 10px 65px;
                 }
+
                 @include mobile {
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    height: 23vh; 
+                    height: 23vh;
                     margin-top: -100px;
                     padding: 50px 65px;
                 }
-                @include phone{
-                     padding: 20px 5px;
-                     margin-top: -30px;
+
+                @include phone {
+                    padding: 20px 5px;
+                    margin-top: -30px;
                 }
-    
+
                 .top {
                     flex: 1;
                     gap: 8px;
@@ -123,29 +137,33 @@
                     @include large {
                         padding: 20px 20px 40px 20px;
                     }
+
                     @include tablet {
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
                     }
+
                     @include mobile {
                         align-items: center;
                     }
-                    @include phone{
+
+                    @include phone {
                         align-items: center;
                         justify-content: center;
                         padding: 0px 20px;
                     }
-    
+
                     h2 {
                         color: #282828;
                         font-size: 25px;
                     }
-                    p{
+
+                    p {
                         font-size: 18px;
                         color: grey;
                     }
-    
+
                     .profileImg {
                         top: 250px;
                         margin: auto;
@@ -155,23 +173,26 @@
                         object-fit: cover;
                         border: 3px solid white;
                         position: absolute;
+
                         @include tablet {
                             width: 160px;
                             height: 160px;
                             top: 180px;
                         }
+
                         @include mobile {
                             width: 100px;
                             height: 100px;
                             top: 200px;
                         }
+
                         @include phone {
                             top: 150px;
                             align-self: center;
                         }
-    
+
                     }
-    
+
                     .topItem {
                         display: flex;
                         gap: 5px;
@@ -187,36 +208,39 @@
                             margin-top: 75px;
                             margin-bottom: -20px;
                         }
+
                         @include mobile {
                             margin-top: 150px;
                             align-items: center;
                             justify-content: center;
                         }
+
                         @include phone {
                             margin-top: 35px;
                             align-items: center;
                             justify-content: center;
                         }
-                        p{
+
+                        p {
                             gap: 10px;
                             display: flex;
                             align-items: center;
-    
-                            .groupIcon{
+
+                            .groupIcon {
                                 font-size: 25px;
                             }
                         }
                     }
-    
+
                 }
-    
+
                 .bottom {
                     flex: 1;
                     gap: 10px;
                     display: flex;
                     align-items: center;
                     margin-left: 270px;
-    
+
                     .friendsBtn {
                         border: none;
                         color: white;
@@ -227,13 +251,13 @@
                         display: flex;
                         align-items: center;
                         background-color: #1877f2;
-    
-                        .friendIcon{
+
+                        .friendIcon {
                             font-size: 20px;
                         }
-    
+
                     }
-    
+
                     .editBtn {
                         border: none;
                         color: white;
@@ -245,40 +269,45 @@
                         align-items: center;
                         background-color: #1877f2;
                     }
-    
+
                 }
             }
         }
 
+        /////responsive rightbar
         .profileBottom {
             display: none;
-            @include tablet{
+
+            @include tablet {
                 display: flex;
-                padding: 15px 0px; 
+                padding: 15px 0px;
             }
+
             .rightbarContainer {
                 gap: 15px;
                 display: flex;
                 width: 100%;
                 flex-direction: column;
-               
+
                 h4 {
                     font-size: 19px;
                     color: #282828;
                     font-weight: 500;
                     margin-bottom: 10px;
                 }
+
                 hr {
                     margin: 15px 0px;
                     border: none;
                     height: 0.5px;
                     background-color: lightgrey;
-                    @include phone{
+
+                    @include phone {
                         margin: 15px 20px 15px 0px;
                     }
                 }
-            
-                
+
+
                 .rightbarCard {
                     gap: 15px;
                     padding: 10px;
@@ -287,11 +316,12 @@
                     background-color: #FFFFFF;
                     border-radius: 10px;
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-                    @include phone{
+
+                    @include phone {
                         display: flex;
-                       padding: 10px; 
+                        padding: 10px;
                     }
-    
+
                     .heading {
                         gap: 15px;
                         display: flex;
@@ -299,21 +329,24 @@
                         flex-direction: column;
                         margin-top: 10px;
                         margin-bottom: 15px;
+
                         @include phone {
-                            text-align:left;
-                            justify-content:flex-start;
+                            text-align: left;
+                            justify-content: flex-start;
                         }
-    
+
                         span {
                             font-size: 13px;
                             font-weight: 300;
                             text-align: center;
                             margin-top: -10px;
+
                             @include phone {
                                 align-self: flex-start;
                                 font-size: 12px;
                             }
                         }
+
                         p {
                             font-size: 13px;
                             font-weight: 300;
@@ -321,6 +354,7 @@
                             align-items: center;
                             justify-content: center;
                             margin-top: -10px;
+
                             @include phone {
                                 justify-content: flex-start;
                                 font-size: 12px;
@@ -328,7 +362,7 @@
                             }
                         }
 
-                        .followBtns{
+                        .followBtns {
 
                             @include phone {
                                 display: flex;
@@ -347,23 +381,24 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                                background-color: rgba(24,119,242);
-                                &:focus{
+                                background-color: rgba(24, 119, 242);
+
+                                &:focus {
                                     outline: none;
                                 }
-            
-                                .friendIcon{
+
+                                .friendIcon {
                                     font-size: 20px;
                                 }
-    
-                                @include phone{
+
+                                @include phone {
                                     width: 160px;
                                 }
-            
+
                             }
-                           
+
                         }
-        
+
                         .editBtn {
                             border: none;
                             width: 100%;
@@ -376,79 +411,84 @@
                             justify-content: center;
                             border: 0.4px solid lightgray;
                             background-color: #ebecf0;
-                            &:focus{
+
+                            &:focus {
                                 outline: none;
                             }
-                            @include phone{
+
+                            @include phone {
                                 width: 160px;
                                 align-self: flex-start;
                             }
                         }
                     }
-    
+
                     .items {
                         gap: 20px;
                         display: flex;
                         flex-direction: column;
-                
+
                         .sidebarItem {
                             gap: 10px;
                             display: flex;
                             color: #282828;
-    
+
                             span {
                                 font-size: 14px;
                                 font-weight: 300;
 
-                                @include phone{
+                                @include phone {
                                     font-size: 13px;
                                 }
                             }
-    
+
                             .details {
                                 font-size: 14px;
                                 font-weight: 500;
-                                @include phone{
+
+                                @include phone {
                                     font-size: 13px;
                                 }
                             }
-    
+
                         }
-    
+
                         .sidebarIcon {
                             font-size: 22px;
                             color: gray;
                         }
                     }
-    
+
                 }
 
-                .sidebarFriends{
+                .sidebarFriends {
                     gap: 15px;
-    
+
                     .profileFriends {
                         display: grid;
                         grid-template-columns: repeat(3, 1fr);
                         grid-gap: 5px;
                         margin-top: 20px;
-                        
-    
+
+
                         .friendItem {
                             display: flex;
                             align-items: center;
                             justify-content: center;
                             flex-direction: column;
                             margin-bottom: 20px;
+
                             img {
                                 width: 100%;
                                 height: 100%;
                                 object-fit: cover;
                                 border-radius: 5px;
+
                                 @include phone {
                                     width: 100px;
                                 }
                             }
-    
+
                             span {
                                 font-size: 12px;
                                 font-weight: 300;
@@ -462,15 +502,17 @@
                             }
                         }
                     }
-    
-                   
+
+
                 }
-    
+
             }
 
 
         }
-    
+
 
     }
+
+    
 }
