@@ -63,7 +63,7 @@
                 }
 
                 @include mobile {
-                    top: 30px;
+                    top: 20px;
                     right: 20px;
                     padding: 8px 10px;
                 }
@@ -183,7 +183,7 @@
                         @include mobile {
                             width: 130px;
                             height: 130px;
-                            top: 200px;
+                            // top: 200px;
                         }
 
                         @include phone {
