@@ -18,7 +18,7 @@ const Share = () => {
         try {
             const formData = new FormData();
             formData.append("file", file);
-            const res = await axios.post("/upload", formData);
+            const res = await axios.post("https://meta-inspo.herokuapp.com/api/upload", formData);
             return res.data;
         } catch (err) {
             console.log(err);
