@@ -56,7 +56,7 @@ function Posts({ post }) {
     // lIKE HANDER
     const likeHandler = () => {
         try {
-            axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+            axios.put("https://meta-inspo.herokuapp.com/api/posts/" + post._id + "/like", { userId: currentUser._id });
         } catch (err) { }
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
