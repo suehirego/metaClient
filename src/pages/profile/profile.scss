@@ -183,7 +183,6 @@
                         @include mobile {
                             width: 130px;
                             height: 130px;
-                            // top: 200px;
                         }
 
                         @include phone {
@@ -337,13 +336,14 @@
 
                         span {
                             font-size: 13px;
-                            font-weight: 300;
+                            font-weight: 400;
                             text-align: center;
                             margin-top: -10px;
+                            color: #1877f2;
 
                             @include phone {
                                 align-self: flex-start;
-                                font-size: 12px;
+                                font-size: 16px;
                             }
                         }
 
@@ -438,7 +438,7 @@
                                 font-weight: 300;
 
                                 @include phone {
-                                    font-size: 13px;
+                                    font-size: 15px;
                                 }
                             }
 
@@ -447,7 +447,7 @@
                                 font-weight: 500;
 
                                 @include phone {
-                                    font-size: 13px;
+                                    font-size: 15px;
                                 }
                             }
 

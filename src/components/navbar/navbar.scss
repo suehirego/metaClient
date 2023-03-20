@@ -14,22 +14,17 @@
 
     @include large {
         padding: 10px 30px;
-        //  background-color: green;
     }
 
     @include tablet {
-        // padding: 10px 10px;
-        //   background-color: orange;
     }
 
     @include mobile {
         padding: 10px 10px;
-        //   background-color: yellow;
     }
 
     @include phone {
         padding: 10px 10px;
-        //  background-color: #7a80af;
     }
 
     .left {
@@ -40,6 +35,9 @@
 
         @include large {
             flex: 0.5;
+        }
+        @include phone {
+            flex: 0.7;
         }
 
         .navbar-logo {
@@ -57,9 +55,17 @@
         input{
             padding: 5px;
             border: 0.4px solid lightgray;
-
             &:focus{
                 outline: none;
+            }
+            @include phone {
+               width: 100%;
+            }
+        }
+        input::placeholder {   
+            @include phone {
+                padding: 8px;
+                font-size: 14px;
             }
         }
        
@@ -79,6 +85,8 @@
             cursor: pointer;
         }
         @include phone{
+            top: 5px;
+            font-size: 30px;
             width: 30px;
             display: flex;
             align-items: center;

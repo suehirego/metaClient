@@ -49,9 +49,15 @@
                     }
 
                     @include phone {
-                        width: 200px;
+                        width: 270px;
                     }
 
+                }
+                .shareInput::placeholder {
+                    
+                    @include phone {
+                        font-size: 15px;
+                    }
                 }
             }
 
