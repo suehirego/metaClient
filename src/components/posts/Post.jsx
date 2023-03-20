@@ -103,7 +103,7 @@ function Posts({ post }) {
                     <span>{post.desc}</span>
                     {/* <img src={PF + post.image} alt="" /> */}
                     {/* <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" /> */}
-                    <img src={`https://meta-inspo.herokuapp.com/images/${user.profilePic}`} alt="" />
+                    <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" />
                 </div>
 
                 <div className='postBottom'>
