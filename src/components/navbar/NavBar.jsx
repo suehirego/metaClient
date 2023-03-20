@@ -309,9 +309,9 @@ export default NavBar;
 //         dispatch({ type: "LOGOUT" });
 //     }
 
-//     const scrollToTop = () => {
-//         window.scrollTo(0, 0)
-//     }
+    // const scrollToTop = () => {
+    //     window.scrollTo(0, 0)
+    // }
 
 //     ///Search users
 //     const[users, setUsers] = useState("");
