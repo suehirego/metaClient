@@ -20,6 +20,8 @@ function Posts({ post }) {
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({});
 
+    const PF = process.env.PUBLIC_FOLDER;
+
     const [posts, setPosts] = useState([]);
 
     const { user: currentUser } = useContext(AuthContext);
@@ -101,8 +103,6 @@ function Posts({ post }) {
 
                 <div className='postCenter'>
                     <span>{post.desc}</span>
-                    {/* <img src={PF + post.image} alt="" /> */}
-                    {/* <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" /> */}
                     <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" />
                 </div>
 
