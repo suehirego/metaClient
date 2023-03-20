@@ -21,7 +21,7 @@ function LeftBar() {
                         <img
                              src={
                                 user?.profilePic
-                                    ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
+                                    ? `https://meta-inspo.herokuapp.com/images/${user?.profilePic}`
                                     : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
                             }
                             className='profileImg' alt=""

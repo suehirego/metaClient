@@ -42,7 +42,7 @@ function Posts({ post }) {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`posts/${id}`, { data: { userId: user._id }, });
+            await axios.delete(`https://meta-inspo.herokuapp.com/api/posts/${id}`, { data: { userId: user._id }, });
             setPosts(posts.filter((post) => post._id !== id));
             window.location.reload();
 
