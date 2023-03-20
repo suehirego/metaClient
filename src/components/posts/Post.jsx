@@ -20,8 +20,6 @@ function Posts({ post }) {
     const [isLiked, setIsLiked] = useState(false);
     const [user, setUser] = useState({});
 
-    const PF = process.env.PUBLIC_FOLDER;
-
     const [posts, setPosts] = useState([]);
 
     const { user: currentUser } = useContext(AuthContext);
