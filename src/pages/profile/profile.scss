@@ -63,7 +63,7 @@
                 }
 
                 @include mobile {
-                    top: 50px;
+                    top: 30px;
                     right: 20px;
                     padding: 8px 10px;
                 }
@@ -165,7 +165,7 @@
                     }
 
                     .profileImg {
-                        top: 200px;
+                        top: 220px;
                         margin: auto;
                         width: 200px;
                         height: 200px;
@@ -181,8 +181,8 @@
                         }
 
                         @include mobile {
-                            width: 100px;
-                            height: 100px;
+                            width: 130px;
+                            height: 130px;
                             top: 200px;
                         }
 
