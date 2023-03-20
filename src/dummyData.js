@@ -1,9 +1,3 @@
-// import story1 from '../../../'
-// import story2 from '../../assets/story2.png';
-// import story3 from '../../assets/story/story3.png';
-// import story5 from '../../assets/story/story5.png';
-// import online from '../../assets/online.png';
-
 //Dummy
 export const posts = [
       {
@@ -32,30 +26,6 @@ export const posts = [
             desc: "Bossoming in my element, 2023!",
             image: 'story/story3',
       },
-]
-
-export const stories = [
-      {
-          id: 1,
-          name: "Nancy Drew",
-          img: 'story/story1.png',
-      },
-      {
-          id: 2,
-          name: "Rothy Nandy",
-          img: 'story/story2.png',
-      },
-      {
-          id: 3,
-          name: "Sue Hirego",
-          img: 'story/story3.png',
-      },
-      {
-          id: 4,
-          name: "Rosie Bale",
-          img: 'story/story4.png',
-      },
-  
 ]
 
 export const friends = [
@@ -110,7 +80,7 @@ export const friends = [
         id: 2,
         userId: 12,
         name: "Rossie Bale",
-        profilePic: '/person/sue.png',
+        profilePic: '/person/rubby.png',
         desc: "What a beautiful post",
     },
     {
@@ -118,6 +88,6 @@ export const friends = [
         userId: 13,
         name: "Rothy Nandy",
         profilePic: '/person/gloria.png',
-        desc: "Bossoming in my element, 2023! I am doing great things this year",
+        desc: "I am doing great things this year",
     },
 ]
