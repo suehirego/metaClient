@@ -10,50 +10,47 @@ import axios from 'axios';
 const Share = () => {
 
     const { user } = useContext(AuthContext);
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const desc = useRef();
     const [file, setFile] = useState(null);
-  
-    const upload = async () => {
-        try {
-            const formData = new FormData();
-            formData.append("file", file);
-            const res = await axios.post("https://meta-inspo.herokuapp.com/api/upload", formData);
-            return res.data;
-        } catch (err) {
-            console.log(err);
-        }
-    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const imgUrl = await upload();
-        const newPost = {
-          userId: user._id,
-          desc: desc.current.value,
-          image: imgUrl,
-        };
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset", "upload");
         try {
-          await axios.post("https://meta-inspo.herokuapp.com/api/posts", newPost);
-          window.location.reload();
-        } catch (err) {}
-      };
+            const uploadRes = await axios.post(
+                "https://api.cloudinary.com/v1_1/tunjooadmin/image/upload",
+                data
+            );
+            const { url } = uploadRes.data;
+
+            const newPost = {
+                userId: user._id,
+                desc: desc.current.value,
+                image: url,
+            };
+            await axios.post("https://meta-inspo.herokuapp.com/api/posts", newPost);
+            window.location.reload();
+        } catch (err) {
+            console.log(err)
+        }
+
+    };
+
 
     return (
         <div className="share">
 
             <div className="shareTop">
                 <img
-                    src={
-                        user?.profilePic
-                            ? PF + user.profilePic
-                            : PF + "person/avatar1.png"
-                    }
+                    src={user.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
                     className="shareProfilePic"
 
                     alt=""
                 />
-                <input className="shareInput" placeholder={"What is on your mind  "  + user.firstname + "?"} ref={desc} />
+                <input className="shareInput" placeholder={"What is on your mind  " + user.firstname + "?"} ref={desc} />
             </div>
 
             <hr className="shareHr" />

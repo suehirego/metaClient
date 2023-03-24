@@ -21,14 +21,10 @@ function Market() {
                     <div className='container'>
                         <div className='menu'>
 
-                            <Link to={`profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                                 <div className='mainItem'>
                                     <img
-                                        src={
-                                            user.profilePic
-                                                ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
-                                                : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
-                                        }
+                                       src={user.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
                                         className='profileImg' alt=""
                                     />
 
@@ -42,7 +38,7 @@ function Market() {
                             </div>
                             <div className='item'>
                                 <IoNotifications className='listIcon' />
-                                <span>Notificatios</span>
+                                <span>Notifications</span>
                             </div>
                             <div className='item'>
                                 <FaInbox className='listIcon' />

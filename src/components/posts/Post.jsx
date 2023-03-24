@@ -23,6 +23,7 @@ function Posts({ post }) {
     const [posts, setPosts] = useState([]);
 
     const { user: currentUser } = useContext(AuthContext);
+    const PF = process.env.PUBLIC_FOLDER;
 
     useEffect(() => {
         setIsLiked(post.likes.includes(currentUser._id));
@@ -38,8 +39,6 @@ function Posts({ post }) {
     }, [post.userId]);
 
 
-
-
     const handleDelete = async (id) => {
         try {
             await axios.delete(`https://meta-inspo.herokuapp.com/api/posts/${id}`, { data: { userId: user._id }, });
@@ -50,8 +49,6 @@ function Posts({ post }) {
             console.log(err.message);
         }
     };
-
-
 
     // lIKE HANDER
     const likeHandler = () => {
@@ -64,7 +61,6 @@ function Posts({ post }) {
 
 
 
-
     return (
         <div className='posts'>
 
@@ -72,15 +68,13 @@ function Posts({ post }) {
 
                 <div className='postTop'>
                     <div className='postTopLeft'>
-                        <img
-                            src={
-                                user.profilePic
-                                    ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
-                                    : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
-                            }
 
-                            alt=""
-                        />
+                        <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <img
+                                src={user.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                alt=""
+                            />
+                        </Link>
 
                         <Link to={`/profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
 
@@ -91,7 +85,6 @@ function Posts({ post }) {
                         </Link>
                     </div>
 
-
                     {post.userId === currentUser._id &&
                         <IoClose className='topIcon' style={{ cursor: 'pointer' }} onClick={() => handleDelete(post._id)} />
                     }
@@ -101,7 +94,7 @@ function Posts({ post }) {
 
                 <div className='postCenter'>
                     <span>{post.desc}</span>
-                    <img src={`https://meta-inspo.herokuapp.com/images/${post?.image}`} alt="" />
+                    <img src={post.image} alt="" />
                 </div>
 
                 <div className='postBottom'>
@@ -138,7 +131,6 @@ function Posts({ post }) {
                 </div>
 
             </div>
-
 
 
         </div>

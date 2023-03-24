@@ -13,7 +13,7 @@ import axios from 'axios';
 
 
 function NavBar() {
-    
+
     const { user: currentUser, dispatch } = useContext(AuthContext);
 
     const [click, setClick] = useState(false);
@@ -31,7 +31,7 @@ function NavBar() {
     }
 
     ///Search users
-    const[users, setUsers] = useState("");
+    const [users, setUsers] = useState("");
     const [value, setValue] = useState('')
 
     const handleChange = (e) => {
@@ -39,7 +39,7 @@ function NavBar() {
     }
 
     //GET ALL USERS
-       useEffect(() => {
+    useEffect(() => {
         const fetchUsers = async () => {
             const res = await axios.get("https://meta-inspo.herokuapp.com/api/users/all");
             setUsers(res.data);
@@ -58,73 +58,69 @@ function NavBar() {
     const Modal = ({ open, closeModal }) => {
         if (!open) return null;
         return (
-          <div onClick={closeModal} className='NavOverlay'>
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-              }}
-              className="NavModal"
-            >
-                                <ul className='userWrapper'>
-                    <div className="headingWrapper">
-                        <p className='heading'>Recent searches</p>
-                        <IoClose className='closeIcon' onClick={closeModal} />
-                    </div>
+            <div onClick={closeModal} className='NavOverlay'>
+                <div
+                    onClick={(e) => {
+                        e.stopPropagation();
+                    }}
+                    className="NavModal"
+                >
+                    <ul className='userWrapper'>
+                        <div className="headingWrapper">
+                            <p className='heading'>Recent searches</p>
+                            <IoClose className='closeIcon' onClick={closeModal} />
+                        </div>
 
-                    <div className="recentWrapper" onClick={closeModal}>
-                        <Link style={{ color: 'inherit', textDecoration: 'none', alignItems: "center" }} to={"/profile/john"}>
-                            <li className='userItem'>
-                                <img className='userImg' src={"https://meta-inspo.herokuapp.com/images/person/john.png"} alt="" />
-                                <span className='recent'>John Doe</span>
-                            </li>
-                        </Link>
-                    </div>
+                        <div className="recentWrapper" onClick={closeModal}>
+                            <Link style={{ color: 'inherit', textDecoration: 'none', alignItems: "center" }} to={"/profile/john"}>
+                                <li className='userItem'>
+                                    <img className='userImg' src="/assets/person/john.png" alt="" />
+                                    <span className='recent'>John Doe</span>
+                                </li>
+                            </Link>
+                        </div>
 
-                    <hr />
+                        <hr />
 
-                    <p className='heading'>Search Results</p>
+                        <p className='heading'>Search Results</p>
 
-                    {users && users.filter((user) => {
-                        const searchTerm = value.toLocaleLowerCase();
-                        const username = user.username.toLocaleLowerCase();
+                        {users && users.filter((user) => {
+                            const searchTerm = value.toLocaleLowerCase();
+                            const username = user.username.toLocaleLowerCase();
 
-                        return (
-                            searchTerm &&
-                            username.startsWith(searchTerm) &&
-                            username !== searchTerm
-                        );
-                    }
+                            return (
+                                searchTerm &&
+                                username.startsWith(searchTerm) &&
+                                username !== searchTerm
+                            );
+                        }
 
-                    )
-                        .map(user => (
-                            <div className="searchWrapper" onClick={closeModal} key={user.username}>
-                                <Link style={{ color: 'inherit', textDecoration: 'none' }} to={"/profile/" + user.username}>
-                                    <li key={user.id} className='userItem' onClick={() => onSearch(user.username)}>
-                                        <img
-                                            className='userImg'
-                                            src={
-                                                user.profilePic
-                                                    ? `https://meta-inspo.herokuapp.com/images/${user.profilePic}`
-                                                    : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
-                                            }
-                                            alt=""
-                                        />
-                                        <div className="userName">
-                                            <span>{user.firstname + " " + user.lastname}</span>
-                                            <p style={{ fontSize: '12px', color: 'gray' }}>{user.username}</p>
-                                        </div>
-                                    </li>
-                                </Link>
-                            </div>
-                        ))}
-                </ul>
-              
-              
+                        )
+                            .map(user => (
+                                <div className="searchWrapper" onClick={closeModal} key={user.username}>
+                                    <Link style={{ color: 'inherit', textDecoration: 'none' }} to={"/profile/" + user.username}>
+                                        <li key={user.id} className='userItem' onClick={() => onSearch(user.username)}>
+                                            <img
+                                                className='userImg'
+                                                src={user.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                                alt=""
+                                            />
+                                            <div className="userName">
+                                                <span>{user.firstname + " " + user.lastname}</span>
+                                                <p style={{ fontSize: '12px', color: 'gray' }}>{user.username}</p>
+                                            </div>
+                                        </li>
+                                    </Link>
+                                </div>
+                            ))}
+                    </ul>
+
+
+                </div>
             </div>
-          </div>
         );
-      };
-    
+    };
+
 
     return (
         <>
@@ -140,7 +136,7 @@ function NavBar() {
                         value={value}
                         placeholder="Search..."
                         onChange={handleChange}
-                        onClick={() => setOpenModal(true)} 
+                        onClick={() => setOpenModal(true)}
 
                     />
 
@@ -163,12 +159,8 @@ function NavBar() {
 
                             >
                                 <img
-                                    src={
-                                        currentUser.profilePic
-                                            ? `https://meta-inspo.herokuapp.com/images/${currentUser.profilePic}`
-                                            : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
-                                    }
-                                    alt="" 
+                                    src={currentUser.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                    alt=""
                                 />
                                 <span>{currentUser.firstname + " " + currentUser.lastname}</span>
                             </NavLink>
@@ -225,16 +217,11 @@ function NavBar() {
 
                         <div className='userWrapper'>
                             <li className="nav-item">
-                               {currentUser &&
-                                <img
-                                src={
-                                    currentUser.profilePic
-                                        // ? PF + currentUser.profilePic
-                                        ? `https://meta-inspo.herokuapp.com/images/${currentUser.profilePic}`
-                                        : "/assets/person/avatar1.png"
-                                }
-                                alt="" 
-                                />
+                                {currentUser &&
+                                    <img
+                                        src={currentUser.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                        alt=""
+                                    />
                                 }
                             </li>
                         </div>
@@ -270,6 +257,7 @@ function NavBar() {
 
 
 export default NavBar;
+
 
 
 

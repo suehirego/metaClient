@@ -155,11 +155,7 @@ function RightFeed() {
 
 
                             <img
-                                src={
-                                    friend.profilePic
-                                        ? `https://meta-inspo.herokuapp.com/images/${friend?.profilePic}`
-                                        : "https://meta-inspo.herokuapp.com/images/person/friend1.png"
-                                }
+                               src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
                                 className="firendImg" alt=""
                             />
                             <div className='online' />
@@ -285,11 +281,7 @@ function RightFeed() {
                                         <Link to={`/profile/${friend.username}`} style={{ textDecoration: "none" }}>
 
                                             <img
-                                                src={
-                                                    friend.profilePic
-                                                        ? `https://meta-inspo.herokuapp.com/images/${friend.profilePic}`
-                                                        : "https://meta-inspo.herokuapp.com/images/person/friend1.png"
-                                                }
+                                                src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
                                                 className="firendImg" alt=""
                                             />
                                             <span>{friend.firstname + " " + friend.lastname}</span>

@@ -6,9 +6,10 @@ import { MdWork } from 'react-icons/md';
 import { AuthContext } from '../../context/AuthContext';
 
 
+
 function LeftBar() {
 
-    const {user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <div className='leftbar'>
@@ -18,19 +19,15 @@ function LeftBar() {
 
                     <Link to={`profile/${user.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='mainItem'>
-                        <img
-                             src={
-                                user?.profilePic
-                                    ? `https://meta-inspo.herokuapp.com/images/${user?.profilePic}`
-                                    : "https://meta-inspo.herokuapp.com/images/person/avatar1.png"
-                            }
-                            className='profileImg' alt=""
-                        />
-                            
+                            <img
+                                src={user.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                className='profileImg' alt=""
+                            />
+
                             <span>{user.firstname + " " + user.lastname}</span>
                         </div>
-                    </Link> 
-                    
+                    </Link>
+
                     <div className='groupItem'>
                         <img src="/assets/friends.png" alt="" className='groupFriendsIcon' />
                         <span>Friends</span>

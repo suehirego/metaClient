@@ -20,7 +20,6 @@ import Groups from './pages/Groups';
 import Market from './pages/Market';
 
 
-
 function App() {
 
     // const { currentUser} = useContext(AuthContext);

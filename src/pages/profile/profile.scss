@@ -165,10 +165,10 @@
                     }
 
                     .profileImg {
-                        top: 220px;
+                        top: 250px;
                         margin: auto;
-                        width: 200px;
-                        height: 200px;
+                        width: 160px;
+                        height: 160px;
                         border-radius: 50%;
                         object-fit: cover;
                         border: 3px solid white;
@@ -187,9 +187,41 @@
 
                         @include phone {
                             top: 150px;
+                            width: 120px;
+                            height: 120px;
                             align-self: center;
                         }
 
+                    }
+                    .profilePhotoEditIcon{
+                        top: 370px;
+                        left: 210px;
+                        margin: auto;
+                        width: 30px;
+                        height: 30px;
+                        padding: 3px;
+                        border: none;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        cursor: pointer;
+                        background-color: gray;
+                        position: absolute;
+                        @include tablet {
+                            top: 300px;
+                            left: 320px;
+                        }
+
+                        @include mobile {
+                            left: 270px;
+                            top: 280px;
+                            width: 25px;
+                            height: 25px; 
+                        }
+
+                        @include phone {
+                            left: 225px;
+                            top: 240px;
+                        }
                     }
 
                     .topItem {
