@@ -23,7 +23,6 @@ function Posts({ post }) {
     const [posts, setPosts] = useState([]);
 
     const { user: currentUser } = useContext(AuthContext);
-    const PF = process.env.PUBLIC_FOLDER;
 
     useEffect(() => {
         setIsLiked(post.likes.includes(currentUser._id));
