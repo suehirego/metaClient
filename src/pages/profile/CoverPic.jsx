@@ -12,37 +12,32 @@ const CoverPic = () => {
 
     const navigate = useNavigate();
 
-    const upload = async () => {
-        try {
-            const formData = new FormData();
-            formData.append("file", file);
-            const res = await axios.post("https://meta-inspo.herokuapp.com/api/upload", formData);
-            return res.data;
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const imgUrl = await upload();
-        dispatch({ type: "UPDATE_START" });
-        const updatedUser = {
-            userId: user._id,
-            coverPic: imgUrl,
-
-        };
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset", "upload");
         try {
-            const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
+            const uploadRes = await axios.post(
+                "https://api.cloudinary.com/v1_1/tunjooadmin/image/upload",
+                data
+            );
+            const { url } = uploadRes.data;
 
+            dispatch({ type: "UPDATE_START" });
+            const updatedUser = {
+                userId: user._id,
+                coverPic: url,
+            };
+
+            const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
             navigate(`/profile/${user.username}`);
         } catch (err) {
             dispatch({ type: "UPDATE_FAILURE" });
         }
 
-    }
+    };
 
     return (
 
