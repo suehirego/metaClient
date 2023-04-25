@@ -28,30 +28,31 @@ function LeftBar() {
                         </div>
                     </Link>
 
-                    <div className='groupItem'>
+                    {/* <div className='groupItem'>
                         <img src="/assets/friends.png" alt="" className='groupFriendsIcon' />
                         <span>Friends</span>
-                    </div>
-                    <div className='item'>
-                        <img src="/assets/recent.png" alt="" />
-                        <span>Most Recent</span>
-                    </div>
-                    <div className='groupItem'>
-                        <GroupsIcon className='groupIcon' />
-                        <span>Groups</span>
-                    </div>
-                    <div className='item'>
-                        <img src="/assets/market.png" alt="" />
-                        <span>Marketplace</span>
-                    </div>
-                    <div className='item'>
-                        <img src="/assets/watch.png" alt="" />
-                        <span>Watch</span>
-                    </div>
-                    <div className='item'>
-                        <img src="/assets/memory.png" alt="" />
-                        <span>Memories</span>
-                    </div>
+                    </div> */}
+                    
+                    <Link to="/watch" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className='item'>
+                            <img src="/assets/watch.png" alt="" />
+                            <span>Watch</span>
+                        </div>
+                    </Link>
+
+                    <Link to="/market" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className='item'>
+                            <img src="/assets/market.png" alt="" />
+                            <span>Marketplace</span>
+                        </div>
+                    </Link>
+                   
+                    <Link to="/groups" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className='groupItem'>
+                            <GroupsIcon className='groupIcon' />
+                            <span>Groups</span>
+                        </div>
+                    </Link>
 
                 </div>
 

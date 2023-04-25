@@ -140,10 +140,11 @@ function RightFeed() {
                             <div style={{ display: 'flex', gap: '4px' }}>
                                 <p>Nancy Drew</p>
                                 <span>and</span>
-                                <p>3 others</p>
+                                <p>2 others</p>
                             </div>
                             <span>have birthdays today</span>
                         </div>
+
                     </div>
 
                     <hr />
