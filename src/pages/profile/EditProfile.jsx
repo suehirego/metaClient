@@ -70,31 +70,6 @@ const EditProfile = () => {
 
             <form className="editProfileWrapper" onSubmit={handleSubmit}>
 
-                <div className="editTop">
-
-                    <div className="editTopText">
-                        <span>Profile Picture</span>
-                        <label htmlFor="fileInput">
-                            <span className="editImgBtn">Upload</span>
-                        </label>
-
-                        <input
-                            type="file"
-                            id="fileInput"
-                            style={{ display: "none" }}
-                            onChange={(e) => setFile(e.target.files[0])}
-                        />
-                    </div>
-
-                    <img
-                        src={file ? URL.createObjectURL(file) : "/assets/person/avatar1.png"}
-
-                        alt=""
-                        className="editProfileImg"
-                    />
-
-                </div>
-
                 <div className="editBottom">
                     <div className="editBottomItem">
                         <label>Username</label>
