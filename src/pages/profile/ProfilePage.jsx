@@ -296,7 +296,7 @@ function ProfilePage() {
 
                     <img className='coverImg'
 
-                        src={ user.coverPic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679626145/cover_t80yts.png"}
+                        src={ user.coverPic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1682419824/cover_fipqur.png"}
                         alt=""
                     />
                     <button className='coverBtn' onClick={() => setOpenModal(true)}>
