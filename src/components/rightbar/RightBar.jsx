@@ -115,43 +115,38 @@ function RightFeed() {
             <>
                 <div className='container'>
                     <h4>Sponsored</h4>
+                    <p className='subHeading'>Advertise with us!</p>
                     <div className='sponsorItem'>
                         <img src="/assets/sheboss.png" alt="" />
                         <div className='sponsorDetails'>
-                            <p>Sheboss Online</p>
-                            <span>https://sheboss-client.netlify.app/</span>
+                            <p>Buaca Tech</p>
+                            <h4>Leading Tech Bootcamp</h4>
+                            <span>https://buaca-tech.com/</span>
                         </div>
                     </div>
                     <div className='sponsorItem'>
                         <img src="/assets/tunjoo.png" alt="" />
                         <div className='sponsorDetails'>
                             <p>Tunjoo Shop</p>
+                            <h4>Latest Fashion Trends</h4>
                             <span>www.tunjoo.com</span>
                         </div>
                     </div>
 
-                    <hr />
-
-                    <h4>Birthdays</h4>
-
-                    <div className='birthdayItem'>
-                        <img src="/assets/giftbox.png" alt="" />
-                        <div className='birthdayDetails'>
-                            <div style={{ display: 'flex', gap: '4px' }}>
-                                <p>Nancy Drew</p>
-                                <span>and</span>
-                                <p>2 others</p>
-                            </div>
-                            <span>have birthdays today</span>
+                    <div className='sponsorItem'>
+                        <img src="/assets/regonow.png" alt="" />
+                        <div className='sponsorDetails'>
+                            <p>Regonow</p>
+                            <h4>Streamline Group Savings</h4>
+                            <span>www.rego-now.com</span>
                         </div>
-
                     </div>
 
                     <hr />
 
-                    <h4>Online Friends</h4>
 
-                    {friends.map((friend) => (
+
+                    {/* {friends.map((friend) => (
                         <div className='onlineItem' key={friend._id}>
 
 
@@ -163,7 +158,7 @@ function RightFeed() {
                             <span>{friend.firstname + " " + friend.lastname}</span>
                         </div>
 
-                    ))}
+                    ))} */}
                 </div>
             </>
         )
@@ -321,6 +316,9 @@ function RightFeed() {
 }
 
 export default RightFeed
+
+
+
 
 
 

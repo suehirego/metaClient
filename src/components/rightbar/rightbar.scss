@@ -24,31 +24,48 @@
             font-size: 17px;
             color: #282828;
             font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .subHeading {
+            font-size: 13px;
+            color: #848482;
+            font-weight: 400;
             margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
 
         .sponsorItem {
             gap: 20px;
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 28px;
 
             img {
                 height: 120px;
                 width: 90px;
-                border-radius: 10px;
+                border-radius: 6px;
             }
 
             .sponsorDetails {
+                gap: 3px;
+                display: flex;
+                flex-direction: column;
+
                 p {
                     color: #282828;
-                    font-size: 14px;
+                    font-size: 13px;
+                }
+                h4{
+                    color: #282828;
+                    font-size: 12px;
                 }
 
                 span {
                     color: gray;
                     font-size: 12px;
                     cursor: pointer;
+                    margin-top: -5px;
+                    letter-spacing: 0.4px;
                 }
             }
         }
@@ -136,8 +153,8 @@
                 height: 0.5px;
                 background-color: lightgrey;
             }
-        
-            
+
+
             .rightbarCard {
                 gap: 15px;
                 padding: 10px;
@@ -176,13 +193,13 @@
                         &:focus{
                             outline: none;
                         }
-    
+
                         .friendIcon{
                             font-size: 20px;
                         }
-    
+
                     }
-    
+
                     .editBtn {
                         border: none;
                         width: 100%;
@@ -205,7 +222,7 @@
                     gap: 20px;
                     display: flex;
                     flex-direction: column;
-            
+
                     .sidebarItem {
                         gap: 10px;
                         display: flex;
@@ -241,7 +258,7 @@
                     align-items: center;
                         justify-content: center;
                     justify-content: space-between;
-                    
+
 
                     .friendItem {
                         flex: 0 0 30%;
@@ -276,7 +293,7 @@
                     }
                 }
 
-               
+
             }
 
             .bottom {
@@ -293,7 +310,7 @@
                 }
             }
 
-           
+
         }
 
     }
@@ -326,5 +343,5 @@
             }
         }
     }
-    
+
 }

@@ -105,7 +105,7 @@ function ProfilePage() {
             </div>
           </div>
         );
-      };
+    };
 
       /// Edit Profile photo
     const ProfilePhotoModal = ({ openProfilePhoto, closeProfilePhotoModal }) => {
@@ -138,7 +138,7 @@ function ProfilePage() {
               }}
               className="Modal"
             >
-               <EditProfile />
+                <EditProfile />
                 <button  className='closeBtn'  onClick={closeProfileModal}>
                     close
                 </button>
@@ -146,7 +146,7 @@ function ProfilePage() {
           </div>
         );
       };
- 
+
 
 
     ///Mobile Boi///
@@ -267,7 +267,7 @@ function ProfilePage() {
                                         </div>
 
                                     ))}
-                                
+
                                 </div>
 
                             </div>
@@ -347,7 +347,7 @@ function ProfilePage() {
             <ProfilePhotoModal
                 openProfilePhoto={openProfilePhotoModal}
                 closeProfilePhotoModal={() => setOpenProfilePhotoModal(false)}
-            />      
+            />
 
         </div>
     )

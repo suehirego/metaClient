@@ -26,7 +26,10 @@ function Login() {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post("https://meta-inspo.herokuapp.com/api/auth/login", inputs);
+            const res = await axios.post("https://meta-inspo.herokuapp.com/api/auth/login",
+                inputs,
+                { withCredentials: true }
+            );
 
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
             navigate("/");

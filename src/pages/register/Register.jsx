@@ -6,35 +6,6 @@ import axios from 'axios';
 
 function Register() {
 
-    // const [inputs, setInputs] = useState({
-    //     username: "",
-    //     firstname: "",
-    //     lastname: "",
-    //     email: "",
-    //     password: "",
-    // });
-
-    // const [err, setErr] = useState(null);
-    // const navigate = useNavigate();
-
-    // const handleChange = (e) => {
-    //     setInputs((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    // };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     try {
-    //         await axios.post("https://meta-inspo.herokuapp.com/api/auth/register", inputs);
-    //         navigate("/login");
-    //     } catch (err) {
-    //         setErr(err.response.data);
-    //     }
-    // };
-
-    // console.log(err)
-
-
     const username = useRef();
     const firstname = useRef();
     const lastname = useRef();
@@ -125,7 +96,7 @@ function Register() {
                             Register
                         </button>
 
-                        {err && <p>{err}</p>}
+                        {err && <p style={{marginTop:60}}>{err}</p>}
 
                         <hr className='registerHr' />
 
