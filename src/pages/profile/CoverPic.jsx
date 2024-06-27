@@ -2,16 +2,14 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import './edit.scss';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const CoverPic = () => {
 
-    const { user, dispatch } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate();
 
     const handleClick = async (e) => {
         e.preventDefault();
@@ -44,14 +42,13 @@ const CoverPic = () => {
     return (
 
         <div className="edit">
-            <h3>Edit Cover Photo</h3>
 
             <form className="editProfileWrapper" onSubmit={handleClick}>
 
                 <div className="editTop">
 
                     <div className="editTopText">
-                        <span>Cover Picture</span>
+                        <h4>CoverPhoto</h4>
                         <label htmlFor="fileInput">
                             <span className="editImgBtn">Click to Upload</span>
                         </label>

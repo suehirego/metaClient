@@ -21,8 +21,9 @@
 
         .editTop {
             gap: 10px;
+            width: 100%;
             display: flex;
-            margin-top: 30px;
+            margin-top: 20px;
             flex-direction: column;
 
             .editTopText {
@@ -30,6 +31,15 @@
                 display: flex;
                 margin-bottom: 10px;
                 justify-content: space-between;
+
+                h4 {
+                    font-weight: 400;
+                    font-size: 18px;
+                    color: #1877f2;
+                    margin-top: 5px;
+                    align-self: center;
+                    letter-spacing: 0.4px;
+                }
 
                 .editImgBtn {
                     font-size: 13px;
@@ -49,6 +59,7 @@
                 height: 220px;
                 object-fit: cover;
                 border-radius: 50%;
+                align-self: center;
 
             }
             .editCoverImg {

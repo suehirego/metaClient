@@ -2,15 +2,13 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import './edit.scss';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ProfilePhoto = () => {
 
-    const { user, dispatch } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [file, setFile] = useState(null);
-
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
 
     const handleSubmit = async (e) => {
@@ -18,42 +16,41 @@ const ProfilePhoto = () => {
         const data = new FormData();
         data.append("file", file);
         data.append("upload_preset", "upload");
+
         try {
+            setLoading(true)
             const uploadRes = await axios.post(
                 "https://api.cloudinary.com/v1_1/tunjooadmin/image/upload",
                 data
             );
             const { url } = uploadRes.data;
 
-            dispatch({ type: "UPDATE_START" });
             const updatedUser = {
-                userId: user._id,
                 profilePic: url,
             };
 
-            const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
-            dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-            navigate(`/profile/${user.username}`);
+            const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/update/" + user._id, updatedUser);
+            localStorage.setItem("user", JSON.stringify(res.data));
+            setLoading(false)
+            window.location.reload();
         } catch (err) {
-            dispatch({ type: "UPDATE_FAILURE" });
+            console.log(err.response.data);
         }
-
     };
 
 
     return (
 
         <div className="edit">
-            <h3>Edit Profile Photo</h3>
 
             <form className="editProfileWrapper" onSubmit={handleSubmit}>
 
                 <div className="editTop">
 
                     <div className="editTopText">
-                        <span>Profile Picture</span>
+                        <h4>Edit Profile Photo</h4>
                         <label htmlFor="fileInput">
-                            <span className="editImgBtn">Upload</span>
+                            <span className="editImgBtn">Click to Upload</span>
                         </label>
 
                         <input
@@ -72,8 +69,8 @@ const ProfilePhoto = () => {
 
                 </div>
 
-                <div className="editBottom">
-                    <button type="submit" className="updateBtn">Update</button>
+                <div className="coverBottom">
+                    <button type="submit" className="updateBtn2">{loading ? "Loading..." : "Update"}</button>
                 </div>
 
             </form>

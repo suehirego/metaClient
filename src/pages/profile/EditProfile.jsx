@@ -2,65 +2,13 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import './edit.scss';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const EditProfile = () => {
 
-    const { user, dispatch } = useContext(AuthContext);
-    // const [file, setFile] = useState(null);
-    const [success, setSuccess] = useState(false);
-
-    // const [person, setPerson] = useState({
-    // username: user.username,
-    // firstname: user.firstname,
-    // lastname: user.lastname,
-    // email: user.email,
-    // tagline: user.tagline,
-    // jobTitle: user.jobTitle,
-    // employer: user.employer,
-    // city: user.city,
-    // school: user.school,
-    // });
-
-
-    // const handleChange = (e) => {
-    //     setPerson((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    // };
-
-    // const navigate = useNavigate();
-
-    // const upload = async () => {
-    //     try {
-    //         const formData = new FormData();
-    //         formData.append("file", file);
-    //         const res = await axios.post("https://meta-inspo.herokuapp.com/api/upload", formData);
-    //         return res.data;
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const imgUrl = await upload();
-    //     dispatch({ type: "UPDATE_START" });
-    //     const updatedUser = {
-    //         userId: user._id,
-    //         profilePic: imgUrl,
-    //         ...person,
-    //     };
-    //     try {
-    //         const res = await axios.put("https://meta-inspo.herokuapp.com/api/users/" + user._id, updatedUser);
-    //         setSuccess(true);
-    //         dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-    //         navigate(`/profile/${user.username}`);
-    //     } catch (err) {
-    //         dispatch({ type: "UPDATE_FAILURE" });
-    //     }
-
-    // }
+    const { user} = useContext(AuthContext);
+    // const [success, setSuccess] = useState(false);
 
 
     //EDIT / UPDATE USER
@@ -81,25 +29,6 @@ const EditProfile = () => {
         setPerson((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const navigate = useNavigate();
-
-    // const handleClick = async (e) => {
-    //     e.preventDefault();
-    //     const url = await upload(file);
-
-    //     try {
-
-    //         const updatedUser = {
-    //             profile: url,
-    //         };
-
-    //         const res = await newRequest.put("/api/user/update/" + currentUser._id, updatedUser);
-    //         localStorage.setItem("currentUser", JSON.stringify(res.data));
-    //         window.location.reload();
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -123,7 +52,7 @@ const EditProfile = () => {
         <div className="edit">
             <h3>Edit your Profile</h3>
 
-            {success && <span style={{ color: 'green' }}>Profile has been updated!</span>}
+            {/* {success && <span style={{ color: 'green' }}>Profile has been updated!</span>} */}
 
             <form className="editProfileWrapper" onSubmit={handleSubmit}>
 
@@ -241,7 +170,7 @@ const EditProfile = () => {
 
                 </div>
 
-                
+
 
             </form>
 
