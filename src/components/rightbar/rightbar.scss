@@ -40,6 +40,12 @@
             align-items: center;
             margin-bottom: 28px;
 
+            .a-link{
+                text-decoration: none;
+                color: inherit;
+                margin-top: -10px;
+            }
+
             img {
                 height: 120px;
                 width: 90px;
@@ -61,7 +67,7 @@
                 }
 
                 span {
-                    color: gray;
+                    color: #1877f2;
                     font-size: 12px;
                     cursor: pointer;
                     margin-top: -5px;
@@ -252,29 +258,35 @@
                 gap: 15px;
 
                 .profileFriends {
-                    display: flex;
-                    flex-wrap: wrap;
+                    gap: 10px;
+                    // display: flex;
+                    display: grid;
+                    // flex-wrap: wrap;
                     margin-top: 10px;
                     align-items: center;
-                        justify-content: center;
+                    grid-template-columns: repeat(3, 1fr);
+                    justify-content: center;
                     justify-content: space-between;
+                    @include extralarge {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                    @include mobile {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
 
 
                     .friendItem {
-                        flex: 0 0 30%;
-                        margin: 5px;
+                        flex: 1;
                         display: flex;
+                        margin-bottom: 20px;
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
-                        @include large {
-                            flex: 0 0 27%;
-                            margin: 5px;
-                        }
 
                         img {
-                            width: 100%;
-                            height: 100%;
+                            flex: 1;
+                            width: 95px;
+                            height: 100px;
                             object-fit: cover;
                             border-radius: 5px;
                         }
@@ -290,6 +302,7 @@
                                 font-size: 9px;
                             }
                         }
+
                     }
                 }
 

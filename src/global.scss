@@ -2,6 +2,7 @@ $extrasmall: 480px; //blue //phone
 $small: 576px; //yellow // mobile
 $medium: 720px; //orange //tablet
 $large: 960px;  //green  /// large
+$extralarge: 1100px;  
 
 @mixin phone {
       @media (max-width: #{$extrasmall}) {
@@ -23,6 +24,12 @@ $large: 960px;  //green  /// large
 
 @mixin large {
       @media (max-width: #{$large}) {
+            @content
+      }
+};
+
+@mixin extralarge {
+      @media (max-width: #{$extralarge}) {
             @content
       }
 };

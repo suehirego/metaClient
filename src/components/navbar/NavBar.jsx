@@ -94,7 +94,7 @@ function NavBar() {
                             {filteredProducts.map((item) =>
                                 currentUser._id !== item._id && (
                                     <Link
-                                        to={`profile/${item.username}`}
+                                        to={`/profile/${item.username}`}
                                         onClick={closeSearchMenu}
                                         style={{ textDecoration: 'none', color: 'inherit' }}
                                     >
@@ -109,19 +109,6 @@ function NavBar() {
                                 </Link>
                                 )
                             )}
-
-                            {/* {filteredProducts.map((item) => (
-                                <Link to={`profile/${item.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    <div className='mainItem'>
-                                        <img
-                                            src={item.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
-                                            className='searchImg' alt=""
-                                        />
-
-                                        <span>{item.firstname + " " + item.lastname}</span>
-                                    </div>
-                                </Link>
-                            ))} */}
 
                         </div>
                     )}
@@ -202,17 +189,17 @@ function NavBar() {
 
                     <div className='right'>
 
-                        <span>Friends: {currentUser?.followings?.length}</span>
-
                         <div className='userWrapper'>
-                            <li className="nav-item">
-                                {currentUser &&
-                                    <img
-                                        src={currentUser.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
-                                        alt=""
-                                    />
-                                }
-                            </li>
+                            <Link to={`profile/${currentUser.username}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <li className="nav-item">
+                                    {currentUser &&
+                                        <img
+                                            src={currentUser.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                            alt=""
+                                        />
+                                    }
+                                </li>
+                            </Link>
                         </div>
 
 
@@ -292,9 +279,9 @@ export default NavBar;
 //         dispatch({ type: "LOGOUT" });
 //     }
 
-//     const scrollToTop = () => {
-//         window.scrollTo(0, 0)
-//     }
+    // const scrollToTop = () => {
+    //     window.scrollTo(0, 0)
+    // }
 
 //     ///Search users
 //     const [users, setUsers] = useState("");

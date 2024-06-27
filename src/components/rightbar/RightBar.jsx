@@ -88,6 +88,10 @@ function RightFeed() {
 
     }
 
+    const scrollToTop = () => {
+        window.scrollTo(0, 0)
+    }
+
     ///modal
     const Modal = ({ open, closeModal }) => {
         if (!open) return null;
@@ -116,20 +120,26 @@ function RightFeed() {
                 <div className='container'>
                     <h4>Sponsored</h4>
                     <p className='subHeading'>Advertise with us!</p>
+
                     <div className='sponsorItem'>
                         <img src="/assets/sheboss.png" alt="" />
                         <div className='sponsorDetails'>
                             <p>Buaca Tech</p>
                             <h4>Leading Tech Bootcamp</h4>
-                            <span>https://buaca-tech.com/</span>
+                            <a href="https://buaca-tech.com/" target='blank' className='a-link'>
+                                <span>www.buaca-tech.com</span>
+                            </a>
                         </div>
                     </div>
+
                     <div className='sponsorItem'>
                         <img src="/assets/tunjoo.png" alt="" />
                         <div className='sponsorDetails'>
                             <p>Tunjoo Shop</p>
                             <h4>Latest Fashion Trends</h4>
-                            <span>www.tunjoo.com</span>
+                            <a href="https://www.tunjoo.com/" target='blank' className='a-link'>
+                                <span>www.tunjoo.com</span>
+                            </a>
                         </div>
                     </div>
 
@@ -138,27 +148,14 @@ function RightFeed() {
                         <div className='sponsorDetails'>
                             <p>Regonow</p>
                             <h4>Streamline Group Savings</h4>
-                            <span>www.rego-now.com</span>
+                            <a href="https://rego-now.com/" target='blank' className='a-link'>
+                                <span>www.rego-now.com</span>
+                            </a>
                         </div>
                     </div>
 
                     <hr />
 
-
-
-                    {/* {friends.map((friend) => (
-                        <div className='onlineItem' key={friend._id}>
-
-
-                            <img
-                               src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
-                                className="firendImg" alt=""
-                            />
-                            <div className='online' />
-                            <span>{friend.firstname + " " + friend.lastname}</span>
-                        </div>
-
-                    ))} */}
                 </div>
             </>
         )
@@ -274,10 +271,10 @@ function RightFeed() {
                                 {friends.map((friend) => (
                                     <div className="friendItem" key={friend._id}>
 
-                                        <Link to={`/profile/${friend.username}`} style={{ textDecoration: "none" }}>
+                                        <Link to={`/profile/${friend.username}`} style={{ textDecoration: "none" }} onClick={scrollToTop}>
 
                                             <img
-                                                src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                                src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1719478384/upload/Beige_Minimalist_Stay_Tuned_Coming_Soon_Instagram_Post_1_r9qvao.png"}
                                                 className="firendImg" alt=""
                                             />
                                             <span>{friend.firstname + " " + friend.lastname}</span>

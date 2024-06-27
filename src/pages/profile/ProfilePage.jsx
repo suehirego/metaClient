@@ -259,7 +259,7 @@ function ProfilePage() {
                                             <Link to={`/profile/${friend.username}`} style={{ textDecoration: "none" }}>
 
                                                 <img
-                                                   src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1679634861/upload/avatar1_klacib.png"}
+                                                   src={friend.profilePic || "https://res.cloudinary.com/tunjooadmin/image/upload/v1719478384/upload/Beige_Minimalist_Stay_Tuned_Coming_Soon_Instagram_Post_1_r9qvao.png"}
                                                     className="firendImg" alt=""
                                                 />
                                                 <span>{friend.firstname + " " + friend.lastname}</span>
@@ -300,8 +300,8 @@ function ProfilePage() {
                         alt=""
                     />
                     <button className='coverBtn' onClick={() => setOpenModal(true)}>
-                        Edit Cover Photo
-                        <ModeEditIcon />
+                        <p>Edit</p>
+                        <ModeEditIcon className='penIcon'/>
                     </button>
                     <button className='mobileCoverBtn' onClick={() => setOpenModal(true)}>
                         <IoCamera className='cameraIcon' />
